@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- page title -->
+    <title>Vacation Masters | Payment Success</title>
+
+     <link rel="shortcut icon" href="assets/images/logos/favicon.png" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Flaticon -->
+    <link rel="stylesheet" href="assets/css/flaticon.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/fontawesome-5.14.0.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+    <!-- Nice Select -->
+    <link rel="stylesheet" href="assets/css/nice-select.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <!-- Slick -->
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <style>
+        ._failed {
+            border-bottom: solid 4px red !important;
+        }
+
+        ._failed i {
+            color: red !important;
+        }
+
+        ._success {
+            box-shadow: 0 15px 25px #00000019;
+            padding: 45px;
+            width: 100%;
+            text-align: center;
+            margin: 40px auto;
+            border-bottom: solid 4px #28a745;
+        }
+
+        ._success i {
+            font-size: 55px;
+            color: #28a745;
+        }
+
+        ._success h2 {
+            margin-bottom: 12px;
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-top: 10px;
+        }
+
+        ._success p {
+            margin-bottom: 0px;
+            font-size: 18px;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        .accordion .message-box img {
+            width: 100px;
+            /* Set the desired width */
+            height: auto;
+            /* Maintain aspect ratio */
+            max-width: 100%;
+            /* Ensure the image doesn't exceed its container */
+            margin: 0 auto;
+            /* Center the image */
+            display: block;
+            /* Makes the image a block element */
+        }
+
+        .home-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .home-button:hover {
+            background-color: white;
+        }
+    </style>
+</head>
+
+
+<body class="default">
+    <!-- preloader starts -->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+    <div class="procus-cursor"></div>
+    <div class="procus-cursor2"></div>
+
+    <div class="theme-color-switch">
+        <input style="display: none;" type="checkbox" class="checkbox" id="checkbox">
+        <label style="display: none;" for="checkbox" class="checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span class="ball"></span>
+        </label>
+    </div>
+
+    <!-- back to top -->
+    <div class="back-to-top">
+        <span><i class="fa fa-angle-up"></i></span>
+    </div>
+
+
+    <!-- main header -->
+        <header class="main-header header-one">
+            <!--Header-Upper-->
+            <div class="header-upper bg-white py-30 rpy-0">
+                <div class="container-fluid clearfix">
+
+                    <div class="header-inner rel d-flex align-items-center">
+                        <div class="logo-outer">
+                            <div class="logo"><a href="#"><img src="assets/images/logo-two.png" alt="Logo"
+                                        title="Logo"></a></div>
+                        </div>
+
+                        <div class="nav-outer mx-lg-auto ps-xxl-5 clearfix">
+                            <!-- Main Menu -->
+                            <nav class="main-menu navbar-expand-lg">
+                                <div class="navbar-header">
+                                    <div class="mobile-logo">
+                                        <a href="#">
+                                            <img src="assets/images/logos/logo-two.png" alt="Logo" title="Logo">
+                                        </a>
+                                    </div>
+
+                                    <!-- Toggle Button -->
+                                    <button type="button" class="navbar-toggle" data-bs-toggle="collapse"
+                                        data-bs-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <div class="navbar-collapse collapse clearfix">
+                                    <ul class="navigation clearfix">
+                                        <li class="current"><a href="/">Home</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="tours.html">Tours</a></li>
+                                        <!-- <li><a href="#">Destinations</a></li>
+                                        <li><a href="#">Services</a></li> -->
+                                         <li><a href="blog.html">News</a></li>
+                                    </ul>
+                                </div>
+
+                            </nav>
+                            <!-- Main Menu End-->
+                        </div>
+
+                        <!-- Menu Button -->
+                        <div class="menu-btns py-10">
+                            <a href="contact.html" class="theme-btn style-two bgc-secondary">
+                                <span data-hover="Let's Talk">Let's Talk</span>
+                                <i class="fal fa-arrow-right"></i>
+                            </a>
+                            <!-- menu sidbar -->
+                            <div class="menu-sidebar">
+                                <button class="bg-transparent">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Header Upper-->
+        </header>
+
+    <div id="scrollsmoother-container">
+        <section class="faq-area pt-110 pb-100">
+            <div class="container">
+                <div class="row mt-60">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="tab-container">
+                            <div class="tab-content">
+                                <div class="tab-content-item active">
+                                    <div class="accordion">
+                                        <div class="accordion-item active">
+                                            <div class="message-box _success text-center">
+                                                <img src="assets/images/checkmark.png" alt="Booking Successful">
+                                                <h2>Your Booking Was Successful</h2>
+                                                <p>Thank you! Your booking has been processed successfully, and we will contact you shortly with more details.</p>
+                                                <p>We have sent a confirmation email with your booking details, payment information, and travel itinerary to the email you provided. Please check your inbox (and your spam folder, just in case) for this confirmation.</p>
+                                                <p>If you have any questions or need further assistance, feel free to contact our support team. We are here to help!</p>
+                                                <a href="https://vacationmasters.co.ke/" class="home-button">Return to Home</a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Jquery -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Appear Js -->
+    <script src="assets/js/appear.min.js"></script>
+    <!-- Slick -->
+    <script src="assets/js/slick.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Nice Select -->
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <!-- Image Loader -->
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <!-- Skillbar -->
+    <script src="assets/js/skill.bars.jquery.min.js"></script>
+    <!-- Isotope -->
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <!--  AOS Animation -->
+    <script src="assets/js/aos.js"></script>
+    <!-- Custom script -->
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
