@@ -85,7 +85,7 @@
                                         <li><a href="tours.html">Tours</a></li>
                                         <!-- <li><a href="#">Destinations</a></li>
                                         <li><a href="#">Services</a></li> -->
-                                        <li><a href="blog.html">News</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </div>
 
@@ -95,8 +95,8 @@
 
                         <!-- Menu Button -->
                         <div class="menu-btns py-10">
-                            <a href="contact.html" class="theme-btn style-two bgc-secondary">
-                                <span data-hover="Let's Talk">Let's Talk</span>
+                            <a href="#" class="theme-btn style-two bgc-secondary">
+                                <span data-hover="Book Now">Book Now</span>
                                 <i class="fal fa-arrow-right"></i>
                             </a>
                             <!-- menu sidbar -->
@@ -955,7 +955,7 @@
 
             try {
                 // Fetch data from an API or a local source based on the slug
-                const response = await fetch(`https://vacationmasters.co.ke/app/v1/get-tour?slug=${slug}`);
+                const response = await fetch(`http://localhost:3000/app/v1/get-tour?slug=${slug}`);
                 if (!response.ok) throw new Error("Tour not found");
 
                 const tour = await response.json();
@@ -995,7 +995,7 @@
         
             try {
                 // Send the form data to the API using fetch
-                const response = await fetch('https://vacationmasters.co.ke/app/v1/book-tour', {
+                const response = await fetch('http://localhost:3000/app/v1/book-tour', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -1013,7 +1013,7 @@
         
                     // Redirect to success page after 3 seconds
                     setTimeout(() => {
-                        window.location.href = '/success.html'; // Replace with your success page URL
+                        window.location.href = '/success'; // Replace with your success page URL
                     }, 3000);
                 } else {
                     // Error: Display error message

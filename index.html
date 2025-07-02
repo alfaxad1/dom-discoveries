@@ -65,7 +65,7 @@
                                 <div class="navbar-header">
                                     <div class="mobile-logo">
                                         <a href="#">
-                                            <img src="assets/images/logo-two.png" alt="Logo" title="Logo">
+                                            <img src="assets/images/logos/logo-two.png" alt="Logo" title="Logo">
                                         </a>
                                     </div>
 
@@ -85,7 +85,7 @@
                                         <li><a href="tours.html">Tours</a></li>
                                         <!-- <li><a href="#">Destinations</a></li>
                                         <li><a href="#">Services</a></li> -->
-                                        <li><a href="blog.html">News</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </div>
 
@@ -95,8 +95,8 @@
 
                         <!-- Menu Button -->
                         <div class="menu-btns py-10">
-                            <a href="contact.html" class="theme-btn style-two bgc-secondary">
-                                <span data-hover="Let's Talk">Let's Talk</span>
+                            <a href="#" class="theme-btn style-two bgc-secondary">
+                                <span data-hover="Book Now">Book Now</span>
                                 <i class="fal fa-arrow-right"></i>
                             </a>
                             <!-- menu sidbar -->
@@ -771,7 +771,7 @@
 
         async function fetchDestinations() {
             try {
-                const response = await fetch('https://vacationmasters.co.ke/app/v1/get-all-destinations');
+                const response = await fetch('http://localhost:3000/app/v1/get-all-destinations');
                 const data = await response.json();
 
                 const destinations = data.destinations.map(destination => ({
@@ -793,16 +793,17 @@
             }
         }
 
+
         async function main() {
             const destinations = await fetchDestinations();
 
-
+            // Reference the destination container
             const destinationContainer = document.getElementById('destinationContainer');
 
-   
+            // Initialize an empty string to hold the HTML
             let destinationHTML = '';
 
-         
+            // Loop through the destinations and build the HTML
             destinations.forEach(destination => {
                 destinationHTML += `
             <div class="destination-item style-two" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
@@ -810,32 +811,34 @@
                     <img src="assets/images/destinations/${destination.image_url}" alt="${destination.name}">
                 </div>
                 <div class="content">
-                    <h6><a href="#">${destination.name}</a></h6>
+                    <h6><a href="destination-details.html">${destination.name}</a></h6>
                     <span class="tours">${destination.tours} tours</span>
                 </div>
             </div>
         `;
             });
 
-
+            // Append the generated HTML to the container
             destinationContainer.innerHTML = destinationHTML;
         }
         main();
 
+        // Function to fetch tours and display them
         async function fetchAndDisplayTours() {
             try {
-                const response = await fetch("https://vacationmasters.co.ke/app/v1/get-all-tours");
+                // Fetch data from the API
+                const response = await fetch("http://localhost:3000/app/v1/get-all-tours");
                 if (!response.ok) throw new Error("Failed to fetch tours");
 
-                const tours = await response.json(); 
+                const tours = await response.json(); // Assume API returns an array of tours
 
-          
+                // Reference the container
                 const tourContainer = document.getElementById("tourContainer");
 
-      
+                // Clear the container
                 tourContainer.innerHTML = "";
 
-            
+                // Generate and append the HTML for each tour
                 tours.tours.forEach(tour => {
                     const tourHTML = `
                         <div class="col-xl-3 col-lg-4 col-md-6">
@@ -843,11 +846,11 @@
                                 <div class="image">
                                     <span class="badge">10% Off</span>
                                     <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                    <img src="https://vacationmasters.co.ke/uploads/${tour.tour_image}" alt="${tour.tour_name}">
+                                    <img src="http://localhost:3000/uploads/${tour.tour_image}" alt="${tour.tour_name}">
                                 </div>
                                 <div class="content">
                                     <span class="location"><i class="fal fa-map-marker-alt"></i> ${tour.destination_name}</span>
-                                    <h6><a href="tour-details.html?slug=${tour.tour_slug}">${tour.tour_name}</a></h6>
+                                    <h6><a href="#">${tour.tour_name}</a></h6>
                                 </div>
                                 <div class="destination-footer">
                                     <span class="price"><span>$${tour.price}</span>/person</span>
@@ -859,7 +862,7 @@
                                         <i class="fas fa-star-half-alt"></i>
                                     </div>
                                 </div>
-                                <a href="tour-details.html?slug=${tour.tour_slug}" class="theme-btn style-three">
+                                <a href="#" class="theme-btn style-three">
                                     <span data-hover="Explore">Explore</span>
                                     <i class="fal fa-arrow-right"></i>
                                 </a>
@@ -867,7 +870,7 @@
                         </div>
                     `;
 
-   
+                    // Append the tour HTML to the container
                     tourContainer.innerHTML += tourHTML;
                 });
             } catch (error) {
@@ -875,31 +878,34 @@
             }
         }
 
+        // Call the function on page load
         fetchAndDisplayTours();
     </script>
 
 <script>
+    // Function to fetch tours and display them
     async function fetchHotDealsTours() {
         try {
-            const response = await fetch("https://vacationmasters.co.ke/app/v1/get-all-tours");
+            // Fetch data from the API
+            const response = await fetch("http://localhost:3000/app/v1/get-all-tours");
             if (!response.ok) throw new Error("Failed to fetch tours");
 
-            const data = await response.json(); 
+            const data = await response.json(); // Assuming the API returns an object with a "tours" array
 
-         
+            // Reference the container
             const tourContainer = document.getElementById("tour-list");
 
-
+            // Clear the container
             tourContainer.innerHTML = "";
 
-      
+            // Generate and append the HTML for each tour
             data.tours.forEach(tour => {
                 const tourHTML = `
                     <div class="destination-item style-four no-border" data-aos="flip-left" data-aos-duration="1500" data-aos-offset="50">
                         <div class="image">
                             <span class="badge">10% Off</span>
                             <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                            <img src="https://vacationmasters.co.ke/uploads/${tour.tour_image}" alt="${tour.tour_name}">
+                            <img src="http://localhost:3000/uploads/${tour.tour_image}" alt="${tour.tour_name}">
                         </div>
                         <div class="content">
                             <span class="location"><i class="fal fa-map-marker-alt"></i> ${tour.destination_name}</span>
@@ -911,14 +917,14 @@
                                 ${createStars(tour.rating)}
                             </div>
                         </div>
-                        <a href="tour-details.html?slug=${tour.tour_slug}" class="theme-btn style-three">
+                        <a href="destination-details.html" class="theme-btn style-three">
                             <span data-hover="Explore">Explore</span>
                             <i class="fal fa-arrow-right"></i>
                         </a>
                     </div>
                 `;
 
-      
+                // Append the tour HTML to the container
                 tourContainer.innerHTML += tourHTML;
             });
         } catch (error) {
@@ -926,7 +932,7 @@
         }
     }
 
-
+    // Function to generate the star rating icons
     function createStars(rating) {
         let starsHTML = '';
         for (let i = 0; i < 5; i++) {
@@ -941,6 +947,7 @@
         return starsHTML;
     }
 
+    // Call the function on page load
     document.addEventListener('DOMContentLoaded', fetchHotDealsTours);
 </script>
 </body>
