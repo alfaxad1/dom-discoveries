@@ -34,12 +34,12 @@
         }
 
         // Check session status immediately
-        (function checkSession() {
-            const token = localStorage.getItem('access_token');
-            if (!token || isTokenExpired()) {
-                logoutUser();
-            }
-        })();
+        // (function checkSession() {
+        //     const token = localStorage.getItem('access_token');
+        //     if (!token || isTokenExpired()) {
+        //         logoutUser();
+        //     }
+        // })();
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/trumbowyg/dist/ui/trumbowyg.min.css">
     

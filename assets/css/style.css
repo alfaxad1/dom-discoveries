@@ -66,9 +66,9 @@ body {
   font-family: var(--base-font);
   --base-font: 'Outfit', sans-serif;
   --heading-font: 'Outfit', sans-serif;
-  --primary-color: #63AB45;
+  --primary-color: #61718A;
   --secondary-color: #F7921E;
-  --heading-color: #3D083B;
+  --heading-color: #61718A;
   --base-color: #484848;
   --lighter-color: #F9F9F7;
   --border-color: #E9E9E9;
@@ -104,6 +104,10 @@ h4 a,
 h5 a,
 h6 a {
   color: var(--heading-color);
+}
+
+.flaticon-best-price:before {
+  content: "\f101";
 }
 
 .text-white h1,
@@ -9287,7 +9291,7 @@ blockquote {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 10px solid var(--secondary-color);
+  border: 10px solid rgb(41, 46, 56);
 }
 
 .contact-images-part .circle-logo img {

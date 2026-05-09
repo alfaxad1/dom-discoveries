@@ -37,12 +37,12 @@
         }
 
         // Check session status immediately
-        (function checkSession() {
-            const token = localStorage.getItem('access_token');
-            if (!token || isTokenExpired()) {
-                logoutUser();
-            }
-        })();
+        // (function checkSession() {
+        //     const token = localStorage.getItem('access_token');
+        //     if (!token || isTokenExpired()) {
+        //         logoutUser();
+        //     }
+        // })();
     </script>
 </head>
 
