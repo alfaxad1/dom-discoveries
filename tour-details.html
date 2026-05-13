@@ -983,7 +983,7 @@
                   <p>
                     We curate bespoke itineraries tailored to your preferences,
                     ensuring every trip is seamless and enriching. Discover
-                    hidden gems with Vacation Masters!
+                    hidden gems with Dom Discoveries!
                   </p>
                   <div class="social-style-one mt-15">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1217,8 +1217,8 @@
       async function fetchTourDetails() {
         const slug = getSlugFromUrl();
         if (!slug) {
-          document.getElementById("tourDetails").innerHTML =
-            "<p>Tour not found.</p>";
+          alert("Tour not found. Redirecting to tours page.");
+          window.location.href = "tours.html";
           return;
         }
 
@@ -1231,22 +1231,25 @@
 
           const tour = await response.json();
 
-          const formattedItinerary = tour.itinerary.replace(/\\n/g, "\n");
+          const formattedItinerary = (tour.itinerary || "").replace(/\\n/g, "\n");
 
           // Replace newline characters (\n) with <br> tags
           const finalItinerary = formattedItinerary.replace(/\n/g, "<br>");
 
           document.getElementById(
             "tour-highlights"
-          ).innerHTML = `${tour.highlights}`;
-          document.getElementById("price").innerHTML = "$" + `${tour.price}`;
+          ).innerHTML = `${tour.highlights || "No highlights available."}`;
+          document.getElementById("price").innerHTML = "$" + `${tour.price || 0}`;
           document.getElementById("tour_id").value = `${tour.id}`;
           document.getElementById(
             "tour-location"
-          ).innerHTML = `${tour.destination_name}`;
-          document.getElementById("tour-name").innerHTML = `${tour.tour_name}`;
+          ).innerHTML = `${tour.destination_name || ""}`;
+          document.getElementById("tour-name").innerHTML = `${tour.tour_name || ""}`;
           document.getElementById("tour-itinerary").innerHTML = finalItinerary;
-        } catch (error) {}
+        } catch (error) {
+          console.error("Failed to fetch tour details:", error);
+          alert("Could not load tour details. Please try again.");
+        }
       }
 
       // Call the function on page load
@@ -1296,7 +1299,7 @@
 
               // Redirect to success page after 3 seconds
               setTimeout(() => {
-                window.location.href = "/success"; // Replace with your success page URL
+                window.location.href = "#"; // Replace with your success page URL
               }, 3000);
             } else {
               // Error: Display error message

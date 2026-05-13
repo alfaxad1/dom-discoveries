@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zxx">
   <head>
     <!-- Required meta tags -->
@@ -1133,7 +1133,7 @@
       async function fetchDestinations() {
         try {
           const response = await fetch(
-            "http://localhost:3000/app/v1/get-all-destinations"
+            "http://localhost:3000/app/v1/get-all-destinations",
           );
           const data = await response.json();
 
@@ -1161,7 +1161,7 @@
 
         // Reference the destination container
         const destinationContainer = document.getElementById(
-          "destinationContainer"
+          "destinationContainer",
         );
 
         // Initialize an empty string to hold the HTML
@@ -1192,7 +1192,7 @@
         try {
           // Fetch data from the API
           const response = await fetch(
-            "http://localhost:3000/app/v1/get-all-tours"
+            "http://localhost:3000/app/v1/get-all-tours",
           );
           if (!response.ok) throw new Error("Failed to fetch tours");
 
@@ -1219,7 +1219,7 @@
                                     <h6><a href="#">${tour.tour_name}</a></h6>
                                 </div>
                                 <div class="destination-footer">
-                                    <span class="price"><span>$${tour.price}</span>/person</span>
+                                    <span class="price"><span>KES ${tour.price}</span>/person</span>
                                     <div class="ratting">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -1254,7 +1254,7 @@
         try {
           // Fetch data from the API
           const response = await fetch(
-            "http://localhost:3000/app/v1/get-all-tours"
+            "http://localhost:3000/app/v1/get-all-tours",
           );
           if (!response.ok) throw new Error("Failed to fetch tours");
 

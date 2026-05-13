@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zxx">
   <head>
     <!-- Required meta tags -->
@@ -383,7 +383,7 @@
                   <p>
                     We curate bespoke itineraries tailored to your preferences,
                     ensuring every trip is seamless and enriching. Discover
-                    hidden gems with Vacation Masters!
+                    hidden gems with Dom Discoveries!
                   </p>
                   <div class="social-style-one mt-15">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -612,7 +612,7 @@
         try {
           // Fetch data from the API
           const response = await fetch(
-            "http://localhost:3000/app/v1/get-all-tours"
+            "http://localhost:3000/app/v1/get-all-tours",
           );
           if (!response.ok) throw new Error("Failed to fetch tours");
 
@@ -649,23 +649,23 @@
                                      
                                 </div>
                             </div>
-                            <h5><a href="tour-details.html">${
+                            <h5><a href="tour-details.html?slug=${tour.tour_slug}">${
                               tour.tour_name
                             }</a></h5>
-                            <p>${tour.description}</p>
+                            <p>${tour.highlights || ""}</p>
                             <ul class="blog-meta">
                                 <li><i class="far fa-clock"></i> ${
                                   tour.duration
                                 }</li>
                                 <li><i class="far fa-user"></i> ${
-                                  tour.guests
+                                  tour.max_participants
                                 } guests</li>
                             </ul>
                             <div class="destination-footer">
-                                <span class="price"><span>$${
+                                <span class="price"><span>KES ${
                                   tour.price
                                 }</span>/person</span>
-                                <a href="tour-details.html" class="theme-btn style-two style-three">
+                                <a href="tour-details.html?slug=${tour.tour_slug}" class="theme-btn style-two style-three">
                                     <span data-hover="Book Now">Book Now</span>
                                     <i class="fal fa-arrow-right"></i>
                                 </a>
@@ -678,6 +678,11 @@
             // Append the tour HTML to the container
             tourContainer.innerHTML += tourHTML;
           });
+
+          // Refresh AOS animation so newly added items become visible
+          if (typeof AOS !== "undefined") {
+            AOS.init();
+          }
         } catch (error) {
           console.error("Error fetching tours:", error);
         }
