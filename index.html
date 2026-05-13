@@ -1133,7 +1133,7 @@
       async function fetchDestinations() {
         try {
           const response = await fetch(
-            "http://localhost:3000/app/v1/get-all-destinations",
+            "https://api.domglobal.co.ke/app/v1/get-all-destinations",
           );
           const data = await response.json();
 
@@ -1192,7 +1192,7 @@
         try {
           // Fetch data from the API
           const response = await fetch(
-            "http://localhost:3000/app/v1/get-all-tours",
+            "https://api.domglobal.co.ke/app/v1/get-all-tours",
           );
           if (!response.ok) throw new Error("Failed to fetch tours");
 
@@ -1212,7 +1212,7 @@
                                 <div class="image">
                                     <span class="badge">10% Off</span>
                                     <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                    <img src="http://localhost:3000/uploads/${tour.tour_image}" alt="${tour.tour_name}">
+                                    <img src="https://api.domglobal.co.ke/uploads/${tour.tour_image}" alt="${tour.tour_name}">
                                 </div>
                                 <div class="content">
                                     <span class="location"><i class="fal fa-map-marker-alt"></i> ${tour.destination_name}</span>
@@ -1254,7 +1254,7 @@
         try {
           // Fetch data from the API
           const response = await fetch(
-            "http://localhost:3000/app/v1/get-all-tours",
+            "https://api.domglobal.co.ke/app/v1/get-all-tours",
           );
           if (!response.ok) throw new Error("Failed to fetch tours");
 
@@ -1273,7 +1273,7 @@
                         <div class="image">
                             <span class="badge">10% Off</span>
                             <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                            <img src="http://localhost:3000/uploads/${
+                            <img src="https://api.domglobal.co.ke/uploads/${
                               tour.tour_image
                             }" alt="${tour.tour_name}">
                         </div>

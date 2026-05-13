@@ -612,7 +612,7 @@
         try {
           // Fetch data from the API
           const response = await fetch(
-            "http://localhost:3000/app/v1/get-all-tours",
+            "https://api.domglobal.co.ke/app/v1/get-all-tours",
           );
           if (!response.ok) throw new Error("Failed to fetch tours");
 
@@ -636,7 +636,7 @@
                                 : ""
                             }
                             <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                            <img src="http://localhost:3000/uploads/${
+                            <img src="https://api.domglobal.co.ke/uploads/${
                               tour.tour_image
                             }" alt="${tour.tour_name}">
                         </div>

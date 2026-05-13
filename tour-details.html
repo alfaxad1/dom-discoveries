@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zxx">
   <head>
     <!-- Required meta tags -->
@@ -1225,26 +1225,29 @@
         try {
           // Fetch data from an API or a local source based on the slug
           const response = await fetch(
-            `http://localhost:3000/app/v1/get-tour?slug=${slug}`
+            `https://api.domglobal.co.ke/app/v1/get-tour?slug=${slug}`,
           );
           if (!response.ok) throw new Error("Tour not found");
 
           const tour = await response.json();
 
-          const formattedItinerary = (tour.itinerary || "").replace(/\\n/g, "\n");
+          const formattedItinerary = (tour.itinerary || "").replace(
+            /\\n/g,
+            "\n",
+          );
 
           // Replace newline characters (\n) with <br> tags
           const finalItinerary = formattedItinerary.replace(/\n/g, "<br>");
 
-          document.getElementById(
-            "tour-highlights"
-          ).innerHTML = `${tour.highlights || "No highlights available."}`;
-          document.getElementById("price").innerHTML = "$" + `${tour.price || 0}`;
+          document.getElementById("tour-highlights").innerHTML =
+            `${tour.highlights || "No highlights available."}`;
+          document.getElementById("price").innerHTML =
+            "$" + `${tour.price || 0}`;
           document.getElementById("tour_id").value = `${tour.id}`;
-          document.getElementById(
-            "tour-location"
-          ).innerHTML = `${tour.destination_name || ""}`;
-          document.getElementById("tour-name").innerHTML = `${tour.tour_name || ""}`;
+          document.getElementById("tour-location").innerHTML =
+            `${tour.destination_name || ""}`;
+          document.getElementById("tour-name").innerHTML =
+            `${tour.tour_name || ""}`;
           document.getElementById("tour-itinerary").innerHTML = finalItinerary;
         } catch (error) {
           console.error("Failed to fetch tour details:", error);
@@ -1277,14 +1280,14 @@
           try {
             // Send the form data to the API using fetch
             const response = await fetch(
-              "http://localhost:3000/app/v1/book-tour",
+              "https://api.domglobal.co.ke/app/v1/book-tour",
               {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify(formObject),
-              }
+              },
             );
 
             const result = await response.json();

@@ -50,7 +50,8 @@
         localStorage.removeItem("access_token");
         localStorage.removeItem("refresh_token");
         localStorage.removeItem("access_token_expiry");
-        window.location.href = "http://localhost:3000/webapp/auth_login.html";
+        window.location.href =
+          "https://api.domglobal.co.ke/webapp/auth_login.html";
       }
 
       function isTokenExpired() {
@@ -528,7 +529,7 @@
     <script src="plugins/table/datatable/button-ext/buttons.print.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        fetch("http://localhost:3000/app/v1/get-all-bookings", {
+        fetch("https://api.domglobal.co.ke/app/v1/get-all-bookings", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -661,7 +662,7 @@
 
             try {
               const response = await fetch(
-                `http://localhost:3000/app/v1/delete-booking`,
+                `https://api.domglobal.co.ke/app/v1/delete-booking`,
                 {
                   method: "DELETE",
                   headers: {
@@ -719,7 +720,7 @@
 
             try {
               const response = await fetch(
-                `http://localhost:3000/app/v1/delete-booking`,
+                `https://api.domglobal.co.ke/app/v1/delete-booking`,
                 {
                   method: "DELETE",
                   headers: {
