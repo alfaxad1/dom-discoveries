@@ -42,6 +42,9 @@
     @keyframes spin { to { transform:rotate(360deg); } }
     .modal-header { background:linear-gradient(135deg,#0f172a,#7c3aed); color:#fff; border-radius:16px 16px 0 0; }
     .modal-content { border-radius:16px; border:none; }
+    /* Fix modal z-index over the site's form-back-drop overlay */
+    .modal-backdrop { z-index: 10040 !important; }
+    .modal { z-index: 10050 !important; }
     .form-control { border-radius:10px; }
     .filter-bar { background:#f8f7ff; border-radius:16px; padding:20px 24px; margin-bottom:40px; }
     .filter-btn { border-radius:20px; border:2px solid #7c3aed; color:#7c3aed; background:#fff; padding:6px 18px; font-weight:600; cursor:pointer; margin:4px; transition:all 0.2s; }
