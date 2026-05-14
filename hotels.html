@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="description" content="Browse and reserve top hotels in Kenya and beyond. DOM Global Discoveries offers curated hotel options at competitive prices."/>
+  <meta name="keywords" content="hotels Kenya, hotel booking Nairobi, DOM Global hotel reservation, accommodation Kenya"/>
+  <meta name="author" content="DOM Global Discoveries"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <title>Hotel Reservations — DOM Global Discoveries</title>
+  <link rel="shortcut icon" href="assets/images/logos/dom.png" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/flaticon.min.css"/>
+  <link rel="stylesheet" href="assets/css/fontawesome-5.14.0.min.css"/>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="assets/css/magnific-popup.min.css"/>
+  <link rel="stylesheet" href="assets/css/aos.css"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .hotel-card { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.10); transition: transform 0.3s, box-shadow 0.3s; background: #fff; height: 100%; }
+    .hotel-card:hover { transform: translateY(-6px); box-shadow: 0 16px 45px rgba(0,0,0,0.16); }
+    .hotel-card img { width: 100%; height: 230px; object-fit: cover; }
+    .hotel-card-body { padding: 20px; }
+    .hotel-card-body h5 { font-weight: 700; color: #1a2942; margin-bottom: 4px; }
+    .hotel-location { color: #777; font-size: 13px; margin-bottom: 8px; }
+    .hotel-stars { color: #f4c542; margin-bottom: 8px; font-size: 16px; }
+    .hotel-price { font-size: 22px; font-weight: 700; color: #e63a27; }
+    .hotel-price span { font-size: 13px; color: #888; font-weight: 400; }
+    .amenities-list { font-size: 12px; color: #555; margin-bottom: 14px; }
+    .btn-reserve { background: #e63a27; color: #fff; border: none; border-radius: 8px; padding: 10px 24px; font-weight: 600; cursor: pointer; transition: background 0.2s; width: 100%; }
+    .btn-reserve:hover { background: #c52f1e; }
+    .modal-backdrop { z-index: 1040 !important; }
+    .modal { z-index: 1050 !important; }
+    .page-hero { background: linear-gradient(135deg,#1a2942 0%,#e63a27 100%); padding: 100px 0 60px; color: #fff; text-align: center; }
+    .page-hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 12px; }
+    .page-hero p { font-size: 18px; opacity: 0.9; }
+    #loadingSpinner { text-align: center; padding: 60px 0; }
+    .spinner-ring { width: 50px; height: 50px; border: 5px solid #eee; border-top-color: #e63a27; border-radius: 50%; animation: spin 0.9s linear infinite; margin: 0 auto 16px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <!-- Preloader -->
+  <div class="preloader"><div class="custom-loader"></div></div>
+
+  <!-- Header -->
+  <header class="main-header header-one">
+    <div class="header-upper bg-white py-30 rpy-0">
+      <div class="container-fluid clearfix">
+        <div class="header-inner rel d-flex align-items-center">
+          <div class="logo-outer"><div class="logo"><a href="index.html"><img src="assets/images/logos/DOMW.jpeg" alt="Logo" style="height:100px;width:200px;" class="white-logo"/></a></div></div>
+          <div class="nav-outer mx-lg-auto ps-xxl-5 clearfix">
+            <nav class="main-menu navbar-expand-lg">
+              <div class="navbar-header">
+                <div class="mobile-logo"><a href="index.html"><img src="assets/images/logos/DOMW.jpeg" alt="Logo" style="height:80px;width:auto;" class="white-logo"/></a></div>
+                <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+              </div>
+              <div class="navbar-collapse collapse clearfix">
+                <ul class="navigation clearfix">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="tours.html">Tours</a></li>
+                  <li class="current"><a href="hotels.html">Hotels</a></li>
+                  <li><a href="airport-transfer.html">Airport Transfer</a></li>
+                  <li><a href="flights.html">Flights</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <div class="menu-btns py-10">
+            <a href="contact.html" class="theme-btn style-two bgc-secondary"><span data-hover="Contact Us">Contact Us</span><i class="fal fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <h1>🏨 Hotel Reservations</h1>
+      <p>Handpicked accommodations for every budget and preference. Book your perfect stay.</p>
+    </div>
+  </div>
+
+  <!-- Hotels Section -->
+  <section class="py-80">
+    <div class="container">
+      <div id="loadingSpinner"><div class="spinner-ring"></div><p>Loading hotels...</p></div>
+      <div class="row g-4" id="hotelsGrid" style="display:none;"></div>
+      <div id="noHotels" class="text-center py-5" style="display:none;">
+        <h4 class="text-muted">No hotels available at the moment. Please check back soon!</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Modal -->
+  <div class="modal fade" id="reserveModal" tabindex="-1" role="dialog" aria-labelledby="reserveModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" style="border-radius:16px;">
+        <div class="modal-header" style="background:linear-gradient(135deg,#1a2942,#e63a27);color:#fff;border-radius:16px 16px 0 0;">
+          <h5 class="modal-title" id="reserveModalLabel">Reserve Hotel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:#fff;"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body p-4">
+          <div id="modalHotelInfo" class="mb-4 p-3" style="background:#f8f9fa;border-radius:12px;"></div>
+          <form id="reserveForm">
+            <input type="hidden" id="selectedHotelId" name="hotel_id"/>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3"><label>Full Name <span class="text-danger">*</span></label><input type="text" class="form-control" name="full_name" id="r_name" placeholder="Your full name" required/></div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3"><label>Email Address <span class="text-danger">*</span></label><input type="email" class="form-control" name="email" id="r_email" placeholder="your@email.com" required/></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3"><label>Phone Number <span class="text-danger">*</span></label><input type="tel" class="form-control" name="phone" id="r_phone" placeholder="+254 7XX XXX XXX" required/></div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3"><label>Number of Guests</label><input type="number" class="form-control" name="number_of_guests" id="r_guests" value="1" min="1"/></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3"><label>Check-In Date <span class="text-danger">*</span></label><input type="date" class="form-control" name="check_in_date" id="r_checkin" required/></div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3"><label>Check-Out Date <span class="text-danger">*</span></label><input type="date" class="form-control" name="check_out_date" id="r_checkout" required/></div>
+              </div>
+            </div>
+            <div class="form-group mb-3"><label>Special Requests</label><textarea class="form-control" name="special_requests" id="r_requests" rows="3" placeholder="Any dietary requirements, room preferences, accessibility needs..."></textarea></div>
+            <p id="reserveMsg" class="mt-2"></p>
+            <button type="submit" id="reserveBtn" class="btn btn-danger btn-block" style="border-radius:8px;padding:12px;font-weight:600;">Submit Reservation Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer footer-two rel z-1 pt-100" style="background:#1a2942;">
+    <div class="container">
+      <div class="row justify-content-center py-4">
+        <div class="col-lg-6 text-center text-white">
+          <img src="assets/images/logos/DOMW.jpeg" alt="DOM Global" style="height:70px;" class="mb-3"/>
+          <p class="mb-0 opacity-75">© 2026 DOM Global Discoveries. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/aos.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const API = "https://api.domglobal.co.ke";
+function starsHtml(n){ let s=""; for(let i=0;i<n;i++) s+="★"; for(let i=n;i<5;i++) s+="☆"; return s; }
+
+async function loadHotels(){
+  try {
+    const res = await fetch(`${API}/app/v1/get-all-hotels`);
+    const data = await res.json();
+    document.getElementById("loadingSpinner").style.display="none";
+    if(!data.hotels||data.hotels.length===0){ document.getElementById("noHotels").style.display="block"; return; }
+    const grid = document.getElementById("hotelsGrid");
+    grid.style.display="flex"; grid.classList.add("row");
+    grid.innerHTML = data.hotels.map(h=>`
+      <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
+        <div class="hotel-card">
+          <img src="${API}/uploads/${h.image_url}" alt="${h.name}" onerror="this.src='assets/images/dubai.jpg'"/>
+          <div class="hotel-card-body">
+            <div class="hotel-stars">${starsHtml(h.star_rating)}</div>
+            <h5>${h.name}</h5>
+            <p class="hotel-location"><i class="fas fa-map-marker-alt"></i> ${h.location}</p>
+            <p class="amenities-list">${h.amenities?'✓ '+h.amenities.split(',').slice(0,3).join(' &nbsp;✓ '):''}</p>
+            <div class="hotel-price">Ksh ${Number(h.price_per_night).toLocaleString()} <span>/ night</span></div>
+            <div class="mt-3"><button class="btn-reserve" onclick="openReserve(${h.id},'${h.name}','${h.location}',${h.price_per_night},${h.star_rating})">Reserve Now</button></div>
+          </div>
+        </div>
+      </div>`).join("");
+  } catch(err){
+    document.getElementById("loadingSpinner").innerHTML=`<p class="text-danger">Error loading hotels: ${err.message}</p>`;
+  }
+}
+
+function openReserve(id,name,location,price,stars){
+  document.getElementById("selectedHotelId").value=id;
+  document.getElementById("reserveModalLabel").textContent=`Reserve — ${name}`;
+  document.getElementById("modalHotelInfo").innerHTML=`<strong>🏨 ${name}</strong><br><small>📍 ${location} &nbsp;&nbsp; ${starsHtml(stars)} &nbsp;&nbsp; <b>Ksh ${Number(price).toLocaleString()}/night</b></small>`;
+  document.getElementById("reserveMsg").innerHTML="";
+  document.getElementById("reserveForm").reset();
+  document.getElementById("selectedHotelId").value=id;
+  const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1);
+  document.getElementById("r_checkin").min = new Date().toISOString().split("T")[0];
+  document.getElementById("r_checkout").min = tomorrow.toISOString().split("T")[0];
+  $('#reserveModal').modal('show');
+}
+
+document.getElementById("reserveForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+  const btn=document.getElementById("reserveBtn"); btn.disabled=true; btn.textContent="Submitting...";
+  const msg=document.getElementById("reserveMsg");
+  const payload = {
+    hotel_id: document.getElementById("selectedHotelId").value,
+    full_name: document.getElementById("r_name").value,
+    email: document.getElementById("r_email").value,
+    phone: document.getElementById("r_phone").value,
+    number_of_guests: document.getElementById("r_guests").value,
+    check_in_date: document.getElementById("r_checkin").value,
+    check_out_date: document.getElementById("r_checkout").value,
+    special_requests: document.getElementById("r_requests").value,
+  };
+  try {
+    const res = await fetch(`${API}/app/v1/hotel-reservation`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+    const data = await res.json();
+    if(res.ok){
+      msg.innerHTML=`<div class="alert alert-success">✅ ${data.message} A confirmation email has been sent to you!</div>`;
+      this.reset();
+      setTimeout(()=>$('#reserveModal').modal('hide'),3000);
+    } else { msg.innerHTML=`<div class="alert alert-danger">${data.message}</div>`; }
+  } catch(err){ msg.innerHTML=`<div class="alert alert-danger">Error: ${err.message}</div>`; }
+  btn.disabled=false; btn.textContent="Submit Reservation Request";
+});
+
+loadHotels();
+</script>
+</body>
+</html>

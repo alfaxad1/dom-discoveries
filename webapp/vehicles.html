@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"/>
+  <title>Vehicles & Transfers - Dom Discoveries Admin</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet"/>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <style>.vehicle-img{width:70px;height:50px;object-fit:cover;border-radius:6px;}.table td{vertical-align:middle;}</style>
+  <script>function logoutUser(){localStorage.removeItem("user");localStorage.removeItem("access_token");window.location.href="auth_login.html";}</script>
+</head>
+<body class="sidebar-noneoverflow">
+  <div class="header-container">
+    <header class="header navbar navbar-expand-sm">
+      <a href="javascript:void(0);" class="sidebarCollapse"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></a>
+      <div class="nav-logo align-self-center"><a class="navbar-brand" href="index.html"><img alt="logo" src="assets/img/90x90.jpg"/><span class="navbar-brand-name">Dom Discoveries</span></a></div>
+      <ul class="navbar-item flex-row nav-dropdowns ml-auto">
+        <li class="nav-item dropdown user-profile-dropdown"><a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="user-profile-dropdown" data-toggle="dropdown"><div class="media"><img src="assets/img/90x90.jpg" class="img-fluid" alt="admin"/><div class="media-body align-self-center"><h6 id="username"><span>Hi,</span> Admin</h6></div></div></a>
+          <div class="dropdown-menu position-absolute animated fadeInUp" aria-labelledby="user-profile-dropdown"><div class="dropdown-item"><a href="#" onclick="logoutUser()">Sign Out</a></div></div>
+        </li>
+      </ul>
+    </header>
+  </div>
+  <div class="main-container" id="container">
+    <div class="overlay"></div><div class="search-overlay"></div>
+    <div class="topbar-nav header navbar" role="banner">
+      <nav id="topbar">
+        <ul class="navbar-nav theme-brand flex-row text-center">
+          <li class="nav-item theme-logo"><a href="index.html"><img src="assets/img/90x90.jpg" class="navbar-logo" alt="logo"/></a></li>
+          <li class="nav-item theme-text"><a href="index.html" class="nav-link">Dom Discoveries</a></li>
+        </ul>
+        <ul class="list-unstyled menu-categories" id="topAccordion">
+          <li class="menu single-menu"><a href="index.html" class="dropdown-toggle autodroprown"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>Dashboard</span></div></a></li>
+          <li class="menu single-menu"><a href="bookings.html" class="dropdown-toggle autodroprown"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect></svg><span>Tour Bookings</span></div></a></li>
+          <li class="menu single-menu"><a href="tours.html" class="dropdown-toggle autodroprown"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon></svg><span>Tours</span></div></a></li>
+          <li class="menu single-menu"><a href="destinations.html" class="dropdown-toggle autodroprown"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Destinations</span></div></a></li>
+          <li class="menu single-menu"><a href="hotels.html" class="dropdown-toggle autodroprown"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>Hotels</span></div></a></li>
+          <li class="menu single-menu active"><a href="vehicles.html" class="dropdown-toggle autodroprown"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg><span>Transfers</span></div></a></li>
+          <li class="menu single-menu"><a href="flight-packages.html" class="dropdown-toggle autodroprown"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg><span>Flights</span></div></a></li>
+          <li class="menu single-menu"><a href="blogs.html" class="dropdown-toggle autodroprown"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg><span>Blogs</span></div></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="content" class="main-content">
+      <div class="layout-px-spacing">
+        <div class="page-header"><div class="page-title"><h3>Airport Transfers — Vehicles & Bookings</h3></div></div>
+        <div class="row layout-top-spacing">
+          <!-- ADD VEHICLE FORM -->
+          <div class="col-lg-4 layout-spacing">
+            <div class="statbox widget box box-shadow">
+              <div class="widget-header"><h4>Add Vehicle Type</h4></div>
+              <div class="widget-content widget-content-area">
+                <form id="addVehicleForm" enctype="multipart/form-data">
+                  <div class="form-group mb-2">
+                    <label>Vehicle Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="name" id="v_name" placeholder="e.g. Toyota Land Cruiser" required/>
+                  </div>
+                  <div class="form-group mb-2">
+                    <label>Capacity (persons) <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" name="capacity" id="v_capacity" placeholder="e.g. 7" required/>
+                  </div>
+                  <div class="form-group mb-2">
+                    <label>Price (Ksh) <span class="text-danger">*</span></label>
+                    <input type="number" step="0.01" class="form-control" name="price" id="v_price" placeholder="e.g. 5000" required/>
+                  </div>
+                  <div class="form-group mb-2">
+                    <label>Description</label>
+                    <textarea class="form-control" name="description" id="v_desc" rows="2" placeholder="Comfortable AC, luggage space..."></textarea>
+                  </div>
+                  <div class="form-group mb-2">
+                    <label>Vehicle Photo</label>
+                    <input type="file" class="form-control" name="image_url" id="v_image" accept="image/*"/>
+                  </div>
+                  <p id="vehicleMsg" class="mt-2"></p>
+                  <button type="submit" id="vehicleBtn" class="btn btn-primary btn-block mt-2">Add Vehicle</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- VEHICLE LIST -->
+          <div class="col-lg-8 layout-spacing">
+            <div class="statbox widget box box-shadow">
+              <div class="widget-header">
+                <div class="row align-items-center">
+                  <div class="col-6"><h4>Vehicle Types</h4></div>
+                  <div class="col-6 text-right"><a href="transfer-bookings.html" class="btn btn-outline-success btn-sm">View Bookings</a></div>
+                </div>
+              </div>
+              <div class="widget-content widget-content-area">
+                <div id="vehicleLoadingMsg" class="text-center py-3"><div class="spinner-border text-primary" role="status"></div></div>
+                <div class="table-responsive" id="vehicleTableWrapper" style="display:none;">
+                  <table class="table table-bordered table-hover">
+                    <thead><tr><th>Photo</th><th>Name</th><th>Capacity</th><th>Price</th><th>Description</th><th>Action</th></tr></thead>
+                    <tbody id="vehiclesTableBody"></tbody>
+                  </table>
+                </div>
+                <div id="noVehicles" class="text-center py-4" style="display:none;"><p class="text-muted">No vehicles added yet.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-wrapper"><div class="footer-section f-section-1"><p>Copyright © 2026 <a href="https://domglobal.co.ke">Dom Global Discoveries</a>, All rights reserved.</p></div></div>
+    </div>
+  </div>
+  <script src="assets/js/libs/jquery-3.1.1.min.js"></script>
+  <script src="bootstrap/js/popper.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    $(document).ready(function(){ App.init(); const user=JSON.parse(localStorage.getItem("user")); if(user&&user.full_name) document.getElementById("username").innerHTML=`<span>Hi,</span> ${user.full_name}`; });
+    const API="https://api.domglobal.co.ke";
+    async function loadVehicles(){
+      try {
+        const res=await fetch(`${API}/app/v1/get-vehicle-types`);
+        const data=await res.json();
+        document.getElementById("vehicleLoadingMsg").style.display="none";
+        if(!data.vehicles||data.vehicles.length===0){document.getElementById("noVehicles").style.display="block";return;}
+        document.getElementById("vehicleTableWrapper").style.display="block";
+        document.getElementById("vehiclesTableBody").innerHTML=data.vehicles.map(v=>`
+          <tr>
+            <td>${v.image_url?`<img src="${API}/uploads/${v.image_url}" class="vehicle-img" alt="${v.name}"/>`:'—'}</td>
+            <td><strong>${v.name}</strong></td>
+            <td>${v.capacity} pax</td>
+            <td>Ksh ${Number(v.price).toLocaleString()}</td>
+            <td><small>${v.description||'—'}</small></td>
+            <td><button class="btn btn-danger btn-sm" onclick="deleteVehicle(${v.id})">Delete</button></td>
+          </tr>`).join("");
+      } catch(err){document.getElementById("vehicleLoadingMsg").innerHTML=`<p class="text-danger">Error: ${err.message}</p>`;}
+    }
+    async function deleteVehicle(id){
+      if(!confirm("Delete this vehicle type?")) return;
+      await fetch(`${API}/app/v1/delete-vehicle-type/${id}`,{method:"DELETE"});
+      Toastify({text:"🗑️ Vehicle deleted",duration:2500,style:{background:"#dc3545"}}).showToast();
+      loadVehicles();
+    }
+    document.getElementById("addVehicleForm").addEventListener("submit",async function(e){
+      e.preventDefault();
+      const btn=document.getElementById("vehicleBtn"); btn.disabled=true; btn.textContent="Adding...";
+      const fd=new FormData(this);
+      try {
+        const res=await fetch(`${API}/app/v1/add-vehicle-type`,{method:"POST",body:fd});
+        const data=await res.json();
+        if(res.ok){
+          Toastify({text:"✅ Vehicle added!",duration:3000,style:{background:"#28a745"}}).showToast();
+          this.reset(); loadVehicles();
+        } else { document.getElementById("vehicleMsg").innerHTML=`<span class="text-danger">${data.message}</span>`; }
+      } catch(err){ document.getElementById("vehicleMsg").innerHTML=`<span class="text-danger">${err.message}</span>`; }
+      btn.disabled=false; btn.textContent="Add Vehicle";
+    });
+    loadVehicles();
+  </script>
+  <script src="assets/js/custom.js"></script>
+</body>
+</html>

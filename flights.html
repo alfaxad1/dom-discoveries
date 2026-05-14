@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="description" content="Browse affordable flight packages from DOM Global Discoveries. Book flights to popular destinations worldwide with ease."/>
+  <meta name="keywords" content="flights Kenya, cheap flights Nairobi, air tickets DOM Global, flight packages Kenya, JKIA flights"/>
+  <meta name="author" content="DOM Global Discoveries"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <title>Flight Packages — DOM Global Discoveries</title>
+  <link rel="shortcut icon" href="assets/images/logos/dom.png" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/flaticon.min.css"/>
+  <link rel="stylesheet" href="assets/css/fontawesome-5.14.0.min.css"/>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="assets/css/magnific-popup.min.css"/>
+  <link rel="stylesheet" href="assets/css/aos.css"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .page-hero { background: linear-gradient(135deg,#0f172a 0%,#7c3aed 100%); padding: 100px 0 60px; color:#fff; text-align:center; }
+    .page-hero h1 { font-size:48px; font-weight:700; }
+    .flight-card { border-radius:18px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.10); transition: transform 0.3s, box-shadow 0.3s; background:#fff; height:100%; }
+    .flight-card:hover { transform:translateY(-6px); box-shadow:0 18px 50px rgba(0,0,0,0.16); }
+    .flight-card-img { width:100%; height:200px; object-fit:cover; }
+    .flight-card-body { padding:20px; }
+    .flight-route { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+    .flight-route .city { font-size:18px; font-weight:700; color:#0f172a; }
+    .flight-route .arrow { color:#7c3aed; font-size:20px; }
+    .flight-airline { font-size:13px; color:#666; margin-bottom:6px; }
+    .flight-dates { font-size:12px; color:#888; margin-bottom:8px; }
+    .flight-includes { font-size:12px; color:#444; background:#f8f7ff; border-radius:8px; padding:8px 12px; margin-bottom:12px; }
+    .class-badge { display:inline-block; border-radius:20px; padding:3px 12px; font-size:11px; font-weight:700; color:#fff; }
+    .class-economy { background:#0ea5e9; }
+    .class-business { background:#7c3aed; }
+    .class-first { background:#f59e0b; }
+    .flight-price { font-size:26px; font-weight:800; color:#7c3aed; }
+    .flight-price span { font-size:13px; color:#888; font-weight:400; }
+    .btn-book-flight { background:linear-gradient(135deg,#7c3aed,#5b21b6); color:#fff; border:none; border-radius:10px; padding:10px 24px; font-weight:700; cursor:pointer; transition:all 0.2s; width:100%; }
+    .btn-book-flight:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(124,58,237,0.4); }
+    .seats-badge { font-size:11px; background:#ecfdf5; color:#059669; border-radius:20px; padding:3px 10px; font-weight:600; }
+    #loadingSpinner { text-align:center; padding:60px 0; }
+    .spinner-ring { width:50px; height:50px; border:5px solid #eee; border-top-color:#7c3aed; border-radius:50%; animation:spin 0.9s linear infinite; margin:0 auto 16px; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .modal-header { background:linear-gradient(135deg,#0f172a,#7c3aed); color:#fff; border-radius:16px 16px 0 0; }
+    .modal-content { border-radius:16px; border:none; }
+    .form-control { border-radius:10px; }
+    .filter-bar { background:#f8f7ff; border-radius:16px; padding:20px 24px; margin-bottom:40px; }
+    .filter-btn { border-radius:20px; border:2px solid #7c3aed; color:#7c3aed; background:#fff; padding:6px 18px; font-weight:600; cursor:pointer; margin:4px; transition:all 0.2s; }
+    .filter-btn.active, .filter-btn:hover { background:#7c3aed; color:#fff; }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="preloader"><div class="custom-loader"></div></div>
+
+  <!-- Header -->
+  <header class="main-header header-one">
+    <div class="header-upper bg-white py-30 rpy-0">
+      <div class="container-fluid clearfix">
+        <div class="header-inner rel d-flex align-items-center">
+          <div class="logo-outer"><div class="logo"><a href="index.html"><img src="assets/images/logos/DOMW.jpeg" alt="Logo" style="height:100px;width:200px;" class="white-logo"/></a></div></div>
+          <div class="nav-outer mx-lg-auto ps-xxl-5 clearfix">
+            <nav class="main-menu navbar-expand-lg">
+              <div class="navbar-header">
+                <div class="mobile-logo"><a href="index.html"><img src="assets/images/logos/DOMW.jpeg" alt="Logo" style="height:80px;width:auto;" class="white-logo"/></a></div>
+                <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+              </div>
+              <div class="navbar-collapse collapse clearfix">
+                <ul class="navigation clearfix">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="tours.html">Tours</a></li>
+                  <li><a href="hotels.html">Hotels</a></li>
+                  <li><a href="airport-transfer.html">Airport Transfer</a></li>
+                  <li class="current"><a href="flights.html">Flights</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <div class="menu-btns py-10"><a href="contact.html" class="theme-btn style-two bgc-secondary"><span data-hover="Contact Us">Contact Us</span><i class="fal fa-arrow-right"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <h1>✈️ Flight Packages</h1>
+      <p>Explore our curated flight deals. Economy, Business and First Class options available.</p>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <section class="pt-60 pb-0">
+    <div class="container">
+      <div class="filter-bar d-flex align-items-center flex-wrap gap-2">
+        <span class="fw-bold me-3">Filter by class:</span>
+        <button class="filter-btn active" onclick="filterPackages('all',this)">All</button>
+        <button class="filter-btn" onclick="filterPackages('Economy',this)">Economy</button>
+        <button class="filter-btn" onclick="filterPackages('Business',this)">Business</button>
+        <button class="filter-btn" onclick="filterPackages('First Class',this)">First Class</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages Grid -->
+  <section class="py-60">
+    <div class="container">
+      <div id="loadingSpinner"><div class="spinner-ring"></div><p>Loading flight packages...</p></div>
+      <div class="row g-4" id="packagesGrid" style="display:none;"></div>
+      <div id="noPackages" class="text-center py-5" style="display:none;"><h4 class="text-muted">No flight packages available at the moment.</h4></div>
+    </div>
+  </section>
+
+  <!-- Booking Modal -->
+  <div class="modal fade" id="bookFlightModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="bookModalTitle">Book Flight</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:#fff;"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body p-4">
+          <div id="modalFlightInfo" class="mb-4 p-3" style="background:#f8f7ff;border-radius:12px;"></div>
+          <form id="bookFlightForm">
+            <input type="hidden" id="selectedPackageId" name="package_id"/>
+            <div class="row">
+              <div class="col-md-6"><div class="form-group mb-3"><label>Full Name <span class="text-danger">*</span></label><input type="text" class="form-control" name="full_name" id="bf_name" placeholder="Your full name" required/></div></div>
+              <div class="col-md-6"><div class="form-group mb-3"><label>Email Address <span class="text-danger">*</span></label><input type="email" class="form-control" name="email" id="bf_email" placeholder="your@email.com" required/></div></div>
+            </div>
+            <div class="row">
+              <div class="col-md-6"><div class="form-group mb-3"><label>Phone Number <span class="text-danger">*</span></label><input type="tel" class="form-control" name="phone" id="bf_phone" placeholder="+254 7XX XXX XXX" required/></div></div>
+              <div class="col-md-6"><div class="form-group mb-3"><label>Number of Passengers</label><input type="number" class="form-control" name="number_of_passengers" id="bf_pax" value="1" min="1"/></div></div>
+            </div>
+            <div class="form-group mb-3"><label>Preferred Travel Date <span class="text-danger">*</span></label><input type="date" class="form-control" name="travel_date" id="bf_date" required/></div>
+            <div class="form-group mb-3"><label>Additional Information</label><textarea class="form-control" name="additional_info" id="bf_info" rows="3" placeholder="Meal preferences, seat preferences, connecting flights..."></textarea></div>
+            <p id="bookFlightMsg" class="mt-2"></p>
+            <button type="submit" id="bookFlightBtn" class="btn btn-primary btn-block" style="border-radius:10px;padding:12px;font-weight:700;">Submit Booking Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer footer-two rel z-1 pt-100" style="background:#0f172a;">
+    <div class="container">
+      <div class="row justify-content-center py-4">
+        <div class="col-lg-6 text-center text-white">
+          <img src="assets/images/logos/DOMW.jpeg" alt="DOM Global" style="height:70px;" class="mb-3"/>
+          <p class="mb-0 opacity-75">© 2026 DOM Global Discoveries. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/aos.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const API = "https://api.domglobal.co.ke";
+let allPackages = [];
+
+function classBadge(c){ if(c==="Business") return '<span class="class-badge class-business">Business</span>'; if(c==="First Class") return '<span class="class-badge class-first">First Class</span>'; return '<span class="class-badge class-economy">Economy</span>'; }
+function renderPackages(pkgs){
+  const grid=document.getElementById("packagesGrid");
+  if(!pkgs||pkgs.length===0){ grid.style.display="none"; document.getElementById("noPackages").style.display="block"; return; }
+  document.getElementById("noPackages").style.display="none";
+  grid.style.display="flex"; grid.classList.add("row");
+  grid.innerHTML=pkgs.map(p=>`
+    <div class="col-xl-4 col-lg-6 mb-4">
+      <div class="flight-card">
+        <img class="flight-card-img" src="${p.image_url?API+'/uploads/'+p.image_url:'assets/images/dubai.jpg'}" alt="${p.package_name}" onerror="this.src='assets/images/dubai.jpg'"/>
+        <div class="flight-card-body">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            ${classBadge(p.package_class)}
+            ${p.seats_available>0?`<span class="seats-badge">✈ ${p.seats_available} seats left</span>`:''}
+          </div>
+          <h5 class="fw-bold mb-2">${p.package_name}</h5>
+          <div class="flight-route"><span class="city">${p.origin}</span><span class="arrow">→</span><span class="city">${p.destination}</span></div>
+          <div class="flight-airline"><i class="fas fa-plane"></i> ${p.airline||'Various Airlines'}</div>
+          <div class="flight-dates"><i class="fas fa-calendar"></i> Departs: ${p.departure_date||'Flexible'} ${p.return_date?'&nbsp;&nbsp;Returns: '+p.return_date:''}</div>
+          ${p.includes?`<div class="flight-includes"><strong>✓ Includes:</strong> ${p.includes}</div>`:''}
+          <div class="flight-price">Ksh ${Number(p.price).toLocaleString()} <span>/person</span></div>
+          <div class="mt-3"><button class="btn-book-flight" onclick="openBookFlight(${p.id},'${p.package_name}','${p.origin}','${p.destination}',${p.price},'${p.package_class}')">Book This Package</button></div>
+        </div>
+      </div>
+    </div>`).join("");
+}
+
+async function loadPackages(){
+  try {
+    const res=await fetch(`${API}/app/v1/get-flight-packages`);
+    const data=await res.json();
+    document.getElementById("loadingSpinner").style.display="none";
+    allPackages=data.packages||[];
+    renderPackages(allPackages);
+  } catch(err){ document.getElementById("loadingSpinner").innerHTML=`<p class="text-danger">Error: ${err.message}</p>`; }
+}
+
+function filterPackages(cls, btn){
+  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  renderPackages(cls==="all"?allPackages:allPackages.filter(p=>p.package_class===cls));
+}
+
+function openBookFlight(id,name,origin,dest,price,cls){
+  document.getElementById("selectedPackageId").value=id;
+  document.getElementById("bookModalTitle").textContent=`Book — ${name}`;
+  document.getElementById("modalFlightInfo").innerHTML=`<strong>✈ ${name}</strong><br><small>📍 ${origin} → ${dest} &nbsp; ${classBadge(cls)} &nbsp; <b>Ksh ${Number(price).toLocaleString()}/person</b></small>`;
+  document.getElementById("bookFlightMsg").innerHTML="";
+  document.getElementById("bookFlightForm").reset();
+  document.getElementById("selectedPackageId").value=id;
+  document.getElementById("bf_date").min=new Date().toISOString().split("T")[0];
+  $('#bookFlightModal').modal('show');
+}
+
+document.getElementById("bookFlightForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+  const btn=document.getElementById("bookFlightBtn"); btn.disabled=true; btn.textContent="Submitting...";
+  const msg=document.getElementById("bookFlightMsg");
+  const payload={
+    package_id:document.getElementById("selectedPackageId").value,
+    full_name:document.getElementById("bf_name").value,
+    email:document.getElementById("bf_email").value,
+    phone:document.getElementById("bf_phone").value,
+    travel_date:document.getElementById("bf_date").value,
+    number_of_passengers:document.getElementById("bf_pax").value,
+    additional_info:document.getElementById("bf_info").value,
+  };
+  try {
+    const res=await fetch(`${API}/app/v1/book-flight`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+    const data=await res.json();
+    if(res.ok){
+      msg.innerHTML=`<div class="alert alert-success">✅ ${data.message} We'll contact you within 24 hours to confirm!</div>`;
+      this.reset();
+      setTimeout(()=>$('#bookFlightModal').modal('hide'),3500);
+    } else { msg.innerHTML=`<div class="alert alert-danger">${data.message}</div>`; }
+  } catch(err){ msg.innerHTML=`<div class="alert alert-danger">Error: ${err.message}</div>`; }
+  btn.disabled=false; btn.textContent="Submit Booking Request";
+});
+
+loadPackages();
+</script>
+</body>
+</html>
