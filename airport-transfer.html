@@ -1,236 +1,876 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="description" content="Book reliable airport transfers in Kenya. Choose your vehicle, pickup location and destination. DOM Global Discoveries airport transfer service."/>
-  <meta name="keywords" content="airport transfer Kenya, Nairobi airport pickup, DOM Global transfer, JKIA transfer, vehicle hire Kenya"/>
-  <meta name="author" content="DOM Global Discoveries"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-  <title>Airport Transfer — DOM Global Discoveries</title>
-  <link rel="shortcut icon" href="assets/images/logos/dom.png" type="image/x-icon"/>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="assets/css/flaticon.min.css"/>
-  <link rel="stylesheet" href="assets/css/fontawesome-5.14.0.min.css"/>
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="assets/css/aos.css"/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
-  <style>
-    .page-hero { background: linear-gradient(135deg,#1a2942 0%,#0d6efd 100%); padding: 100px 0 60px; color: #fff; text-align: center; }
-    .page-hero h1 { font-size: 48px; font-weight: 700; }
-    .vehicle-card { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.10); transition: transform 0.3s, box-shadow 0.3s; background: #fff; height: 100%; cursor: pointer; border: 3px solid transparent; }
-    .vehicle-card:hover, .vehicle-card.selected { transform: translateY(-6px); box-shadow: 0 16px 45px rgba(0,0,0,0.16); border-color: #0d6efd; }
-    .vehicle-card img { width:100%; height:200px; object-fit:cover; }
-    .vehicle-card-body { padding: 18px; }
-    .vehicle-card-body h5 { font-weight: 700; color: #1a2942; }
-    .vehicle-price { font-size: 22px; font-weight: 700; color: #0d6efd; }
-    .booking-form-section { background: linear-gradient(135deg,#f8f9ff,#eef2ff); border-radius: 20px; padding: 40px; }
-    .form-control { border-radius: 10px; border: 1.5px solid #dee2e6; padding: 12px 16px; }
-    .form-control:focus { border-color: #0d6efd; box-shadow: 0 0 0 3px rgba(13,110,253,0.15); }
-    .btn-book { background: linear-gradient(135deg,#0d6efd,#0056b3); color:#fff; border:none; border-radius:12px; padding:14px 40px; font-weight:700; font-size:16px; cursor:pointer; transition: all 0.2s; width:100%; }
-    .btn-book:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(13,110,253,0.4); }
-    .section-badge { display:inline-block; background:#eef2ff; color:#0d6efd; border-radius:20px; padding:6px 18px; font-weight:600; font-size:13px; margin-bottom:12px; }
-    #loadingSpinner { text-align:center; padding:60px 0; }
-    .spinner-ring { width:50px; height:50px; border:5px solid #eee; border-top-color:#0d6efd; border-radius:50%; animation:spin 0.9s linear infinite; margin:0 auto 16px; }
-    @keyframes spin { to { transform:rotate(360deg); } }
-  </style>
-</head>
-<body>
-<div class="page-wrapper">
-  <div class="preloader"><div class="custom-loader"></div></div>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Book reliable airport transfers in Kenya. Choose your vehicle, pickup location and destination. DOM Global Discoveries airport transfer service."
+    />
+    <meta
+      name="keywords"
+      content="airport transfer Kenya, Nairobi airport pickup, DOM Global transfer, JKIA transfer, vehicle hire Kenya"
+    />
+    <meta name="author" content="DOM Global Discoveries" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Airport Transfer — DOM Global Discoveries</title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/logos/dom.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/flaticon.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome-5.14.0.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css" />
+    <link rel="stylesheet" href="assets/css/nice-select.min.css" />
+    <link rel="stylesheet" href="assets/css/aos.css" />
+    <link rel="stylesheet" href="assets/css/slick.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .main-footer {
+        color: #ffffff !important; /* Forces text to be white */
+      }
 
-  <!-- Header -->
-  <header class="main-header header-one">
-    <div class="header-upper bg-white py-30 rpy-0">
-      <div class="container-fluid clearfix">
-        <div class="header-inner rel d-flex align-items-center">
-          <div class="logo-outer"><div class="logo"><a href="index.html"><img src="assets/images/logos/DOMW.jpeg" alt="Logo" style="height:100px;width:200px;" class="white-logo"/></a></div></div>
-          <div class="nav-outer mx-lg-auto ps-xxl-5 clearfix">
-            <nav class="main-menu navbar-expand-lg">
-              <div class="navbar-header">
-                <div class="mobile-logo"><a href="index.html"><img src="assets/images/logos/DOMW.jpeg" alt="Logo" style="height:80px;width:auto;" class="white-logo"/></a></div>
-                <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      .main-footer .footer-widget h5,
+      .main-footer .footer-widget p,
+      .main-footer .list-style-three li a,
+      .main-footer .list-style-one li,
+      .main-footer .copyright-text p {
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+
+      .main-footer .footer-title h5 {
+        color: #fff !important;
+        border-bottom: 2px solid #e63a27;
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+      }
+
+      .footer-bottom {
+        background: rgba(0, 0, 0, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-widget a:hover {
+        color: #e63a27 !important;
+      }
+      .transfer-hero {
+        position: relative;
+        height: 75vh;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: #fff;
+        background-color: #1a2942;
+      }
+
+      .transfer-hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1920&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        transform: scale(1.03);
+        animation: dynamicPan 25s infinite alternate ease-in-out;
+      }
+
+      .transfer-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(26, 41, 66, 0.75) 0%,
+          rgba(26, 41, 66, 0.4) 50%,
+          rgba(26, 41, 66, 0.8) 100%
+        );
+        z-index: 2;
+      }
+
+      .transfer-hero-content {
+        position: relative;
+        z-index: 3;
+        max-width: 800px;
+        text-align: center;
+        padding: 0 15px;
+      }
+
+      .transfer-hero-content .badge-top {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 600;
+        color: #efd9d6;
+        display: inline-block;
+        margin-bottom: 15px;
+        font-size: 13px;
+        background: rgba(242, 235, 232, 0.329);
+        padding: 6px 16px;
+        border-radius: 50px;
+        border: 1px solid rgba(242, 235, 232, 0.329);
+      }
+
+      .transfer-hero-content h1 {
+        font-size: clamp(
+          36px,
+          5.5vw,
+          64px
+        ); /* Scales gracefully across viewport sizes */
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .transfer-hero-content p {
+        font-size: 19px;
+        opacity: 0.9;
+        margin-bottom: 35px;
+        font-weight: 400;
+        line-height: 1.6;
+      }
+
+      @keyframes dynamicPan {
+        from {
+          transform: scale(1) translate(0, 0);
+        }
+        to {
+          transform: scale(1.06) translate(1%, -0.5%);
+        }
+      }
+
+      .transfer-hero-btns .theme-btn {
+        padding: 14px 38px;
+        font-size: 15px;
+        border-radius: 50px;
+      }
+      .vehicle-card {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        background: #fff;
+        height: 100%;
+        cursor: pointer;
+        border: 3px solid transparent;
+      }
+      .vehicle-card:hover,
+      .vehicle-card.selected {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 45px rgba(0, 0, 0, 0.16);
+        border-color: #0d6efd;
+      }
+      .vehicle-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .vehicle-card-body {
+        padding: 18px;
+      }
+      .vehicle-card-body h5 {
+        font-weight: 700;
+        color: #1a2942;
+      }
+      .vehicle-price {
+        font-size: 22px;
+        font-weight: 700;
+        color: #0d6efd;
+      }
+      .booking-form-section {
+        background: linear-gradient(135deg, #f8f9ff, #eef2ff);
+        border-radius: 20px;
+        padding: 40px;
+      }
+      .form-control {
+        border-radius: 10px;
+        border: 1.5px solid #dee2e6;
+        padding: 12px 16px;
+      }
+      .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+      }
+      .btn-book {
+        background: linear-gradient(135deg, #0d6efd, #0056b3);
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        padding: 14px 40px;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.2s;
+        width: 100%;
+      }
+      .btn-book:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
+      }
+      .section-badge {
+        display: inline-block;
+        background: #eef2ff;
+        color: #0d6efd;
+        border-radius: 20px;
+        padding: 6px 18px;
+        font-weight: 600;
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+      #loadingSpinner {
+        text-align: center;
+        padding: 60px 0;
+      }
+      .spinner-ring {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #eee;
+        border-top-color: #0d6efd;
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+        margin: 0 auto 16px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="preloader"><div class="custom-loader"></div></div>
+
+      <!-- Header -->
+      <header class="main-header header-one">
+        <div class="header-upper bg-white py-30 rpy-0">
+          <div class="container-fluid clearfix">
+            <div class="header-inner rel d-flex align-items-center">
+              <div class="logo-outer">
+                <div class="logo">
+                  <a href="index.html"
+                    ><img
+                      src="assets/images/logos/DOMW.jpeg"
+                      alt="Logo"
+                      style="height: 100px; width: 200px"
+                      class="white-logo"
+                  /></a>
+                </div>
               </div>
-              <div class="navbar-collapse collapse clearfix">
-                <ul class="navigation clearfix">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About Us</a></li>
-                  <li><a href="tours.html">Tours</a></li>
-                  <li><a href="hotels.html">Hotels</a></li>
-                  <li class="current"><a href="airport-transfer.html">Airport Transfer</a></li>
-                  <li><a href="flights.html">Flights</a></li>
-                  <li><a href="contact.html">Contact</a></li>
+              <div class="nav-outer mx-lg-auto ps-xxl-5 clearfix">
+                <nav class="main-menu navbar-expand-lg">
+                  <div class="navbar-header">
+                    <div class="mobile-logo">
+                      <a href="index.html"
+                        ><img
+                          src="assets/images/logos/DOMW.jpeg"
+                          alt="Logo"
+                          style="height: 80px; width: auto"
+                          class="white-logo"
+                      /></a>
+                    </div>
+                    <button
+                      type="button"
+                      class="navbar-toggle"
+                      data-bs-toggle="collapse"
+                      data-bs-target=".navbar-collapse"
+                    >
+                      <span class="icon-bar"></span
+                      ><span class="icon-bar"></span
+                      ><span class="icon-bar"></span>
+                    </button>
+                  </div>
+                  <div class="navbar-collapse collapse clearfix">
+                    <ul class="navigation clearfix">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="about.html">About Us</a></li>
+                      <li><a href="tours.html">Tours</a></li>
+                      <li><a href="hotels.html">Hotels</a></li>
+                      <li class="current">
+                        <a href="airport-transfer.html">Airport Transfer</a>
+                      </li>
+                      <li><a href="flights.html">Flights</a></li>
+                      <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+              <div class="menu-btns py-10">
+                <a href="contact.html" class="theme-btn style-two bgc-secondary"
+                  ><span data-hover="Contact Us">Contact Us</span
+                  ><i class="fal fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <section class="transfer-hero">
+        <div class="transfer-hero-bg"></div>
+        <div class="transfer-hero-overlay"></div>
+
+        <div
+          class="container transfer-hero-content"
+          data-aos="fade-up"
+          data-aos-duration="1200"
+        >
+          <span class="badge-top">Reliable & Chauffeur-Driven</span>
+          <h1>Seamless Exec Transits</h1>
+          <p>
+            Skip the airport taxi lines. Experience safe, comfortable, and
+            timely transfers from JKIA to your destination with professional
+            drivers who track your flight.
+          </p>
+
+          <div class="transfer-hero-btns">
+            <a href="#vehiclesGrid" class="theme-btn bgc-secondary">
+              <span data-hover="View Executive Fleet"
+                >View Executive Fleet</span
+              >
+              <i class="fal fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vehicles Section -->
+      <section class="py-80">
+        <div class="container">
+          <div class="text-center mb-60">
+            <span class="section-badge">Our Fleet</span>
+            <h2 class="fw-bold">Choose Your Vehicle</h2>
+            <p class="text-muted">
+              Select the vehicle that best suits your group size and comfort
+              needs
+            </p>
+          </div>
+          <div id="loadingSpinner">
+            <div class="spinner-ring"></div>
+            <p>Loading vehicles...</p>
+          </div>
+          <div class="row g-4" id="vehiclesGrid" style="display: none"></div>
+          <div id="noVehicles" class="text-center py-4" style="display: none">
+            <p class="text-muted">
+              No vehicles available. Please check back soon.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Booking Form -->
+      <section class="py-60" style="background: #f8f9ff">
+        <div class="container">
+          <div class="booking-form-section">
+            <div class="text-center mb-40">
+              <span class="section-badge">Book Now</span>
+              <h2 class="fw-bold">Book Your Airport Transfer</h2>
+              <p class="text-muted">
+                Fill in your details and we'll confirm your booking by email
+              </p>
+            </div>
+            <form id="transferForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label>Full Name <span class="text-danger">*</span></label
+                    ><input
+                      type="text"
+                      class="form-control"
+                      name="full_name"
+                      id="t_name"
+                      placeholder="Your full name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label
+                      >Email Address <span class="text-danger">*</span></label
+                    ><input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="t_email"
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label
+                      >Phone Number <span class="text-danger">*</span></label
+                    ><input
+                      type="tel"
+                      class="form-control"
+                      name="phone"
+                      id="t_phone"
+                      placeholder="+254 7XX XXX XXX"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label
+                      >Number of People
+                      <span class="text-danger">*</span></label
+                    ><input
+                      type="number"
+                      class="form-control"
+                      name="number_of_people"
+                      id="t_pax"
+                      value="1"
+                      min="1"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label
+                      >Pickup Location <span class="text-danger">*</span></label
+                    ><input
+                      type="text"
+                      class="form-control"
+                      name="pickup_location"
+                      id="t_pickup"
+                      placeholder="e.g. JKIA Terminal 1, Nairobi CBD..."
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label>Destination <span class="text-danger">*</span></label
+                    ><input
+                      type="text"
+                      class="form-control"
+                      name="destination"
+                      id="t_dest"
+                      placeholder="e.g. Serena Hotel, Karen..."
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label
+                      >Pickup Date & Time
+                      <span class="text-danger">*</span></label
+                    ><input
+                      type="datetime-local"
+                      class="form-control"
+                      name="pickup_datetime"
+                      id="t_datetime"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label
+                      >Vehicle Type <span class="text-danger">*</span></label
+                    >
+                    <select
+                      class="form-control"
+                      name="vehicle_type_id"
+                      id="t_vehicle"
+                      required
+                    >
+                      <option value="">Select a vehicle...</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>Additional Information</label
+                ><textarea
+                  class="form-control"
+                  name="additional_info"
+                  id="t_info"
+                  rows="3"
+                  placeholder="Flight number, special requirements, number of bags..."
+                ></textarea>
+              </div>
+              <p id="transferMsg" class="mt-2"></p>
+              <button type="submit" id="transferBtn" class="btn-book">
+                Book Transfer
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer
+        class="main-footer bgs-cover overlay rel z-1 pb-25"
+        style="background-image: url(assets/images/backgrounds/footer.jpg)"
+      >
+        <div class="container">
+          <div class="footer-top pt-100 pb-30">
+            <div class="row justify-content-between">
+              <div
+                class="col-xl-5 col-lg-6"
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                data-aos-offset="50"
+              >
+                <div class="footer-widget footer-text">
+                  <div class="footer-logo mb-25">
+                    <img
+                      src="assets/images/logos/domW.png"
+                      alt="Logo"
+                      title="Logo"
+                      style="height: 100px; width: 200px"
+                      class="white-logo"
+                    />
+                  </div>
+                  <p>
+                    We curate bespoke itineraries tailored to your preferences,
+                    ensuring every trip is seamless and enriching. Discover
+                    hidden gems with DOM Global Discoveries
+                  </p>
+                  <div class="social-style-one mt-15">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-xl-5 col-lg-6"
+                data-aos="fade-up"
+                data-aos-delay="50"
+                data-aos-duration="1500"
+                data-aos-offset="50"
+              >
+                <div class="section-title counter-text-wrap mb-35">
+                  <h2>Subscribe to Our Newsletter</h2>
+                  <p>
+                    Join over
+                    <span
+                      class="count-text plus"
+                      data-speed="3000"
+                      data-stop="34500"
+                      >0</span
+                    >
+                    travelers who trust us for unforgettable experiences!
+                  </p>
+                </div>
+                <form class="newsletter-form mb-50" action="#">
+                  <input
+                    id="news-email"
+                    type="email"
+                    placeholder="Email Address"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    class="theme-btn bgc-secondary style-two"
+                  >
+                    <span data-hover="Subscribe">Subscribe</span>
+                    <i class="fal fa-arrow-right"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="widget-area pt-95 pb-45">
+          <div class="container">
+            <div
+              class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2"
+            >
+              <div
+                class="col col-small"
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                data-aos-offset="50"
+              >
+                <div class="footer-widget footer-links">
+                  <div class="footer-title">
+                    <h5>Services</h5>
+                  </div>
+                  <ul class="list-style-three">
+                    <li><a href="flights.html">Airline Ticketing</a></li>
+                    <li>
+                      <a href="airport-transfer.html">Airport Transfers</a>
+                    </li>
+                    <li><a href="hotels.html">Hotel Reservations</a></li>
+                    <li><a href="#">Visa Services</a></li>
+                    <li><a href="tours.html">Tours & Safaris</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="col col-small"
+                data-aos="fade-up"
+                data-aos-delay="50"
+                data-aos-duration="1500"
+                data-aos-offset="50"
+              >
+                <div class="footer-widget footer-links">
+                  <div class="footer-title">
+                    <h5>Company</h5>
+                  </div>
+                  <ul class="list-style-three">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Community Blog</a></li>
+                    <li><a href="#">Jobs and Careers</a></li>
+                    <li><a href="#">Latest News Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="col col-small"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-duration="1500"
+                data-aos-offset="50"
+              >
+                <div class="footer-widget footer-links">
+                  <div class="footer-title">
+                    <h5>Destinations</h5>
+                  </div>
+                  <ul class="list-style-three">
+                    <li><a href="#">African Safaris</a></li>
+                    <li><a href="#">Alaska & Canada</a></li>
+                    <li><a href="#">South America</a></li>
+                    <li><a href="#">Middle East</a></li>
+                    <li><a href="#">Europe</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="col col-small"
+                data-aos="fade-up"
+                data-aos-delay="150"
+                data-aos-duration="1500"
+                data-aos-offset="50"
+              >
+                <div class="footer-widget footer-links">
+                  <div class="footer-title">
+                    <h5>Categories</h5>
+                  </div>
+                  <ul class="list-style-three">
+                    <li><a href="#">Adventure</a></li>
+                    <li><a href="#">Hiking & Trekking</a></li>
+                    <li><a href="#">Cycling Tours</a></li>
+                    <li><a href="#">Family Tours</a></li>
+                    <li><a href="#">Wildlife Tours</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="col col-md-6 col-10 col-small"
+                data-aos="fade-up"
+                data-aos-delay="200"
+                data-aos-duration="1500"
+                data-aos-offset="50"
+              >
+                <div class="footer-widget footer-contact">
+                  <div class="footer-title">
+                    <h5>Get In Touch</h5>
+                  </div>
+                  <ul class="list-style-one">
+                    <li>
+                      <i class="fal fa-map-marked-alt"></i> Delta Hse,
+                      Univeristy Way 2nd Floor , Nairobi
+                    </li>
+                    <li>
+                      <i class="fal fa-envelope"></i>
+                      <a href="mailto:domglobaldiscoveries@gmail.com"
+                        >domglobaldiscoveries@gmail.com</a
+                      >
+                    </li>
+                    <li>
+                      <i class="fal fa-phone-volume"></i>
+                      <a href="callto: +254 711 390 000">
+                        +254 711 390 000 | +254 728 778 393</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom pt-20 pb-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-5">
+                <div class="copyright-text text-center text-lg-start">
+                  <p>
+                    Copyright &copy;
+                    <script>
+                      document.write(new Date().getFullYear());
+                    </script>
+                    All rights reserved | DOM Global Discoveries Limited
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-7 text-center text-lg-end">
+                <ul class="footer-bottom-nav">
+                  <li><a href="#">Terms</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Legal Notice</a></li>
+                  <li><a href="#">Accessibility</a></li>
                 </ul>
               </div>
-            </nav>
+            </div>
+            <!-- Scroll Top Button -->
+            <button class="scroll-top scroll-to-target" data-target="html">
+              <img src="assets/images/icons/scroll-up.png" alt="Scroll Up" />
+            </button>
           </div>
-          <div class="menu-btns py-10"><a href="contact.html" class="theme-btn style-two bgc-secondary"><span data-hover="Contact Us">Contact Us</span><i class="fal fa-arrow-right"></i></a></div>
         </div>
-      </div>
+      </footer>
     </div>
-  </header>
 
-  <!-- Hero -->
-  <div class="page-hero">
-    <div class="container">
-      <h1>🚗 Airport Transfer</h1>
-      <p>Safe, reliable and comfortable transfers. Select your vehicle and book in minutes.</p>
-    </div>
-  </div>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/appear.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/skill.bars.jquery.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+      const API = "https://api.domglobal.co.ke";
+      let selectedVehicleId = null;
 
-  <!-- Vehicles Section -->
-  <section class="py-80">
-    <div class="container">
-      <div class="text-center mb-60">
-        <span class="section-badge">Our Fleet</span>
-        <h2 class="fw-bold">Choose Your Vehicle</h2>
-        <p class="text-muted">Select the vehicle that best suits your group size and comfort needs</p>
-      </div>
-      <div id="loadingSpinner"><div class="spinner-ring"></div><p>Loading vehicles...</p></div>
-      <div class="row g-4" id="vehiclesGrid" style="display:none;"></div>
-      <div id="noVehicles" class="text-center py-4" style="display:none;"><p class="text-muted">No vehicles available. Please check back soon.</p></div>
-    </div>
-  </section>
-
-  <!-- Booking Form -->
-  <section class="py-60" style="background:#f8f9ff;">
-    <div class="container">
-      <div class="booking-form-section">
-        <div class="text-center mb-40">
-          <span class="section-badge">Book Now</span>
-          <h2 class="fw-bold">Book Your Airport Transfer</h2>
-          <p class="text-muted">Fill in your details and we'll confirm your booking by email</p>
-        </div>
-        <form id="transferForm">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group mb-3"><label>Full Name <span class="text-danger">*</span></label><input type="text" class="form-control" name="full_name" id="t_name" placeholder="Your full name" required/></div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3"><label>Email Address <span class="text-danger">*</span></label><input type="email" class="form-control" name="email" id="t_email" placeholder="your@email.com" required/></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group mb-3"><label>Phone Number <span class="text-danger">*</span></label><input type="tel" class="form-control" name="phone" id="t_phone" placeholder="+254 7XX XXX XXX" required/></div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3"><label>Number of People <span class="text-danger">*</span></label><input type="number" class="form-control" name="number_of_people" id="t_pax" value="1" min="1" required/></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group mb-3"><label>Pickup Location <span class="text-danger">*</span></label><input type="text" class="form-control" name="pickup_location" id="t_pickup" placeholder="e.g. JKIA Terminal 1, Nairobi CBD..." required/></div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3"><label>Destination <span class="text-danger">*</span></label><input type="text" class="form-control" name="destination" id="t_dest" placeholder="e.g. Serena Hotel, Karen..." required/></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group mb-3"><label>Pickup Date & Time <span class="text-danger">*</span></label><input type="datetime-local" class="form-control" name="pickup_datetime" id="t_datetime" required/></div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mb-3">
-                <label>Vehicle Type <span class="text-danger">*</span></label>
-                <select class="form-control" name="vehicle_type_id" id="t_vehicle" required>
-                  <option value="">Select a vehicle...</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="form-group mb-3"><label>Additional Information</label><textarea class="form-control" name="additional_info" id="t_info" rows="3" placeholder="Flight number, special requirements, number of bags..."></textarea></div>
-          <p id="transferMsg" class="mt-2"></p>
-          <button type="submit" id="transferBtn" class="btn-book">Book Transfer</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="main-footer footer-two rel z-1 pt-100" style="background:#1a2942;">
-    <div class="container">
-      <div class="row justify-content-center py-4">
-        <div class="col-lg-6 text-center text-white">
-          <img src="assets/images/logos/DOMW.jpeg" alt="DOM Global" style="height:70px;" class="mb-3"/>
-          <p class="mb-0 opacity-75">© 2026 DOM Global Discoveries. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-</div>
-
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/aos.js"></script>
-<script src="assets/js/script.js"></script>
-<script>
-const API = "https://api.domglobal.co.ke";
-let selectedVehicleId = null;
-
-async function loadVehicles(){
-  try {
-    const res = await fetch(`${API}/app/v1/get-vehicle-types`);
-    const data = await res.json();
-    document.getElementById("loadingSpinner").style.display="none";
-    const vehicleSelect = document.getElementById("t_vehicle");
-    if(!data.vehicles||data.vehicles.length===0){ document.getElementById("noVehicles").style.display="block"; return; }
-    const grid = document.getElementById("vehiclesGrid");
-    grid.style.display="flex"; grid.classList.add("row");
-    grid.innerHTML = data.vehicles.map(v=>`
+      async function loadVehicles() {
+        try {
+          const res = await fetch(`${API}/app/v1/get-vehicle-types`);
+          const data = await res.json();
+          document.getElementById("loadingSpinner").style.display = "none";
+          const vehicleSelect = document.getElementById("t_vehicle");
+          if (!data.vehicles || data.vehicles.length === 0) {
+            document.getElementById("noVehicles").style.display = "block";
+            return;
+          }
+          const grid = document.getElementById("vehiclesGrid");
+          grid.style.display = "flex";
+          grid.classList.add("row");
+          grid.innerHTML = data.vehicles
+            .map(
+              (v) => `
       <div class="col-xl-4 col-lg-6 mb-4">
         <div class="vehicle-card" id="vc-${v.id}" onclick="selectVehicle(${v.id},'${v.name}')">
-          ${v.image_url?`<img src="${API}/uploads/${v.image_url}" alt="${v.name}"/>`:`<div style="height:200px;background:linear-gradient(135deg,#1a2942,#0d6efd);display:flex;align-items:center;justify-content:center;"><i class="fas fa-car fa-4x text-white"></i></div>`}
+          ${v.image_url ? `<img src="${API}/uploads/${v.image_url}" alt="${v.name}"/>` : `<div style="height:200px;background:linear-gradient(135deg,#1a2942,#0d6efd);display:flex;align-items:center;justify-content:center;"><i class="fas fa-car fa-4x text-white"></i></div>`}
           <div class="vehicle-card-body">
             <h5>${v.name}</h5>
             <p class="text-muted mb-1"><i class="fas fa-users"></i> Up to ${v.capacity} passengers</p>
-            <p class="text-muted mb-2"><small>${v.description||''}</small></p>
+            <p class="text-muted mb-2"><small>${v.description || ""}</small></p>
             <div class="vehicle-price">Ksh ${Number(v.price).toLocaleString()}</div>
             <div class="mt-2"><small class="text-primary fw-bold">Click to select this vehicle</small></div>
           </div>
         </div>
-      </div>`).join("");
-    // Populate vehicle select dropdown
-    vehicleSelect.innerHTML = '<option value="">Select a vehicle...</option>';
-    data.vehicles.forEach(v=>{ const opt=document.createElement("option"); opt.value=v.id; opt.textContent=`${v.name} (${v.capacity} pax) — Ksh ${Number(v.price).toLocaleString()}`; vehicleSelect.appendChild(opt); });
-  } catch(err){ document.getElementById("loadingSpinner").innerHTML=`<p class="text-danger">Error: ${err.message}</p>`; }
-}
+      </div>`,
+            )
+            .join("");
+          // Populate vehicle select dropdown
+          vehicleSelect.innerHTML =
+            '<option value="">Select a vehicle...</option>';
+          data.vehicles.forEach((v) => {
+            const opt = document.createElement("option");
+            opt.value = v.id;
+            opt.textContent = `${v.name} (${v.capacity} pax) — Ksh ${Number(v.price).toLocaleString()}`;
+            vehicleSelect.appendChild(opt);
+          });
+        } catch (err) {
+          document.getElementById("loadingSpinner").innerHTML =
+            `<p class="text-danger">Error: ${err.message}</p>`;
+        }
+      }
 
-function selectVehicle(id, name){
-  document.querySelectorAll(".vehicle-card").forEach(c=>c.classList.remove("selected"));
-  document.getElementById("vc-"+id).classList.add("selected");
-  document.getElementById("t_vehicle").value = id;
-  document.getElementById("t_vehicle").dispatchEvent(new Event("change"));
-  document.getElementById("transferForm").scrollIntoView({behavior:"smooth", block:"start"});
-}
+      function selectVehicle(id, name) {
+        document
+          .querySelectorAll(".vehicle-card")
+          .forEach((c) => c.classList.remove("selected"));
+        document.getElementById("vc-" + id).classList.add("selected");
+        document.getElementById("t_vehicle").value = id;
+        document.getElementById("t_vehicle").dispatchEvent(new Event("change"));
+        document
+          .getElementById("transferForm")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      }
 
-document.getElementById("transferForm").addEventListener("submit", async function(e){
-  e.preventDefault();
-  const btn=document.getElementById("transferBtn"); btn.disabled=true; btn.textContent="Booking...";
-  const msg=document.getElementById("transferMsg");
-  const payload = {
-    full_name: document.getElementById("t_name").value,
-    email: document.getElementById("t_email").value,
-    phone: document.getElementById("t_phone").value,
-    pickup_location: document.getElementById("t_pickup").value,
-    destination: document.getElementById("t_dest").value,
-    pickup_datetime: document.getElementById("t_datetime").value,
-    vehicle_type_id: document.getElementById("t_vehicle").value,
-    number_of_people: document.getElementById("t_pax").value,
-    additional_info: document.getElementById("t_info").value,
-  };
-  try {
-    const res = await fetch(`${API}/app/v1/book-transfer`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
-    const data = await res.json();
-    if(res.ok){
-      msg.innerHTML=`<div class="alert alert-success">✅ ${data.message} A confirmation email has been sent to you!</div>`;
-      this.reset();
-      document.querySelectorAll(".vehicle-card").forEach(c=>c.classList.remove("selected"));
-    } else { msg.innerHTML=`<div class="alert alert-danger">${data.message}</div>`; }
-  } catch(err){ msg.innerHTML=`<div class="alert alert-danger">Error: ${err.message}</div>`; }
-  btn.disabled=false; btn.textContent="Book Transfer";
-});
+      document
+        .getElementById("transferForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const btn = document.getElementById("transferBtn");
+          btn.disabled = true;
+          btn.textContent = "Booking...";
+          const msg = document.getElementById("transferMsg");
+          const payload = {
+            full_name: document.getElementById("t_name").value,
+            email: document.getElementById("t_email").value,
+            phone: document.getElementById("t_phone").value,
+            pickup_location: document.getElementById("t_pickup").value,
+            destination: document.getElementById("t_dest").value,
+            pickup_datetime: document.getElementById("t_datetime").value,
+            vehicle_type_id: document.getElementById("t_vehicle").value,
+            number_of_people: document.getElementById("t_pax").value,
+            additional_info: document.getElementById("t_info").value,
+          };
+          try {
+            const res = await fetch(`${API}/app/v1/book-transfer`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+            const data = await res.json();
+            if (res.ok) {
+              msg.innerHTML = `<div class="alert alert-success">✅ ${data.message} A confirmation email has been sent to you!</div>`;
+              this.reset();
+              document
+                .querySelectorAll(".vehicle-card")
+                .forEach((c) => c.classList.remove("selected"));
+            } else {
+              msg.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
+            }
+          } catch (err) {
+            msg.innerHTML = `<div class="alert alert-danger">Error: ${err.message}</div>`;
+          }
+          btn.disabled = false;
+          btn.textContent = "Book Transfer";
+        });
 
-loadVehicles();
-</script>
-</body>
+      loadVehicles();
+    </script>
+  </body>
 </html>

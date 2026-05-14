@@ -50,8 +50,7 @@
         localStorage.removeItem("access_token");
         localStorage.removeItem("refresh_token");
         localStorage.removeItem("access_token_expiry");
-        window.location.href =
-          "https://api.domglobal.co.ke/webapp/auth_login.html";
+        window.location.href = "auth_login.html";
       }
 
       function isTokenExpired() {
@@ -63,12 +62,12 @@
       }
 
       // Check session status immediately
-      // (function checkSession() {
-      //     const token = localStorage.getItem('access_token');
-      //     if (!token || isTokenExpired()) {
-      //         logoutUser();
-      //     }
-      // })();
+      (function checkSession() {
+          const token = localStorage.getItem('access_token');
+          if (!token || isTokenExpired()) {
+              logoutUser();
+          }
+      })();
     </script>
   </head>
   <body class="sidebar-noneoverflow">

@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
     />
     <title>Dom Discoveries - Login</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/Web-Logo.png" />
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link
       href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap"
@@ -43,7 +43,7 @@
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script>
       function loginUser() {
-        window.location.href = "https://api.domglobal.co.ke/webapp/index.html";
+        window.location.href = "index.html";
       }
 
       function isTokenExpired() {
@@ -78,7 +78,7 @@
               <h1 class="">
                 Log In To
                 <a href="#"
-                  ><span class="brand-name">Vaccation Masters</span></a
+                  ><span class="brand-name">Dom Global Discoveries</span></a
                 >
               </h1>
               <h4>Admin Dashboard</h4>
@@ -160,7 +160,7 @@
                         id="submitButton"
                         type="submit"
                         class="btn"
-                        style="background-color: #7ec246; color: white"
+                        style="background-color: #3b3254; color: white"
                       >
                         Log In
                       </button>
@@ -207,20 +207,22 @@
           submitButton.disabled = true;
           submitButton.innerText = "Please Wait...";
           try {
-            const response = await fetch(
-              "https://api.domglobal.co.ke/app/v1/login",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  phone_number: phone_number,
-                  password: password,
-                }),
-                credentials: "include",
+            const API_BASE =
+              window.location.hostname === "127.0.0.1" ||
+              window.location.hostname === "localhost"
+                ? "http://localhost:3000"
+                : "https://api.domglobal.co.ke";
+            const response = await fetch(`${API_BASE}/app/v1/login`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
               },
-            );
+              body: JSON.stringify({
+                phone_number: phone_number,
+                password: password,
+              }),
+              credentials: "include",
+            });
 
             const result = await response.json();
 
